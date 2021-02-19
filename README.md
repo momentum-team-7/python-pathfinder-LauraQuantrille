@@ -36,10 +36,11 @@ Read the data from `elevation_small.txt` into an appropriate data structure to g
 The numbers in this file are lined up like x-y coordinates. If the file contains the following:
 
 ```
+00 
 150 175 150 200
 170 191 190 182
 179 191 180 182
-193 195 190 192
+193 195 190 192(33)
 ```
 
 Then the elevation at the top left corner (x: 0, y: 0) is 150 and the elevation at the bottom right (x: 3, y: 3) is 192. The elevation at x: 1, y: 2 is 191.
@@ -81,3 +82,13 @@ Note that our greedy lowest-elevation-change algorithm is flawed. It is not guar
 ## Credit
 
 Adapted from [Nifty Assignments -- Mountain Paths](http://nifty.stanford.edu/2016/franke-mountain-paths/).
+
+<!-- 
+-read the file and store it as a list of lists. check out readlines
+-print out what you have and see how it corresponds to elevations on a map.
+-upper left corner is 00
+-use index to find elevation with coordinates
+-make a black or white square that's the same dimensions of your list of lists - use pillow library. how to make a square of certain dimensions
+-figure out % of grayscale for each of these - lowest elevation is black, highest elevation is white
+-match 1 pixel - grayscale intensity will be indicated by elevation
+  -->
