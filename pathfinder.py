@@ -30,6 +30,33 @@ minmax_range = int(max_el - min_el)
 # print(minmax_range)
 
 
+def grayscale(elevation):
+        int_elevation = int(elevation)
+        diff = (int_elevation - min_el)
+#     print(diff)
+        percent_of_range = (diff/minmax_range)
+#     print(percent_of_range)
+        grayscale_value = (percent_of_range * 255)
+#     print(grayscale_value)
+        render_pixel = RGB(grayscale_value)
+#     print(render_pixel)
+        return render_pixel
+
+
+
+def RGB(grayscale_value):
+        return (int(grayscale_value), int(grayscale_value), int(grayscale_value))
+
+dimensions = len(coordinates[0]), len(coordinates)
+
+im = Image.new('RGB', dimensions)
+for x in range(dimensions[0]):
+    for y in range(dimensions[1]):
+        im.putpixel((y, x), grayscale(coordinates[x][y]))
+im.save('elevation_large.png')
+print(im)
+
+
 # im = Image.new('RGB', (600, 600))
 # im.save('elevation_small.png')
 # # Image.open('elevation_small.png')
@@ -48,36 +75,10 @@ minmax_range = int(max_el - min_el)
 #         im.getpixel((0,0))
 #         im.getpixel((300,600))
 # im.save('putPixel.png')
-im = Image.new('RGB', (1201, 1201))
-for row in coordinates:
-        for elevation in row:
-                im.putpixel((row.index(elevation), coordinates.index(row)), grayscale(elevation))
-im.save('elevation_large.png')
-print(im)
-
-def coord_to_ele(x,y):
-        return int(coordinates[y][x])
-# getting coordinates of elevation (x,y?)
-
-
-def grayscale(elevation):
-        int_elevation = int(elevation)
-        diff = (int_elevation - min_el)
-#     print(diff)
-        percent_of_range = (diff/minmax_range)
-#     print(percent_of_range)
-        grayscale_value = (percent_of_range * 255)
-#     print(grayscale_value)
-        render_pixel = RGB(grayscale_value)
-#     print(render_pixel)
-        return render_pixel
-
-
-def RGB(grayscale_value):
-        return (int(grayscale_value), int(grayscale_value), int(grayscale_value))
-
-
-# # convert output into RGB format - (X,X,X)? 
-
-
+# im = Image.new('RGB', (1201, 1201))
+# for row in coordinates:
+#         for elevation in row:
+#                 im.putpixel((row.index(elevation), coordinates.index(row)), grayscale(elevation))
+# im.save('elevation_large.png')
+# print(im) ---- rendered image with black spots
 
