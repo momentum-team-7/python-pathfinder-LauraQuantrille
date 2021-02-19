@@ -50,9 +50,9 @@ def RGB(grayscale_value):
 dimensions = len(coordinates[0]), len(coordinates)
 
 im = Image.new('RGB', dimensions)
-for x in range(dimensions[0]):
-    for y in range(dimensions[1]):
-        im.putpixel((y, x), grayscale(coordinates[x][y]))
+for y in range(dimensions[1]):
+    for x in range(dimensions[0]):
+        im.putpixel((x, y), grayscale(coordinates[y][x]))
 im.save('elevation_large.png')
 print(im)
 
