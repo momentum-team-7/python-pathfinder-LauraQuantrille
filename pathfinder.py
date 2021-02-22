@@ -1,5 +1,6 @@
 from PIL import Image
 from PIL import ImageColor
+from PIL import ImageDraw
 # link pillow module
 
 file_small = 'elevation_small.txt'
@@ -49,6 +50,7 @@ def RGB(grayscale_value):
 
 dimensions = len(coordinates[0]), len(coordinates)
 
+
 im = Image.new('RGB', dimensions)
 for y in range(dimensions[1]):
     for x in range(dimensions[0]):
@@ -57,23 +59,20 @@ im.save('elevation_large.png')
 print(im)
 
 
-# im = Image.new('RGB', (600, 600))
-# im.save('elevation_small.png')
-# # Image.open('elevation_small.png')
-# im.getpixel((0, 0))
-# for x in range(600):
-#         for y in range(600):
-#                 # im.putpixel((x,y),grayscale(elevation))
 
-#                 # elevation = coord_to_ele(x,y)
-#                 #  find elevation, and then find grayscale for that elevation which will then get passed into line 30 - given x & y you figure out the elevation using index in list of lists
-#                 im.putpixel((x,y),grayscale(elevation))
-#         from PIL import ImageColor
-#         for x in range(300):
-#                 for y in range(300,600):
-#                         im.putpixel((x,y), ImageColor.getcolor('darkgrey','RGB'))
-#         im.getpixel((0,0))
-#         im.getpixel((300,600))
+# use im.putpixel to draw a line - function needed to compare elevation values and map the lowest values across
+
+def map_footpath():
+# foot_path - loop to map a lowest elevation path & link to ImageDraw 
+# draw = ImageDraw.Draw(im) 
+# draw.line((100,200, 150,300), fill=128)
+# im.show()
+
+
+
+
+#  find elevation, and then find grayscale for that elevation which will then get passed given x & y you figure out the elevation using index in list of lists
+#  
 # im.save('putPixel.png')
 # im = Image.new('RGB', (1201, 1201))
 # for row in coordinates:
@@ -81,4 +80,3 @@ print(im)
 #                 im.putpixel((row.index(elevation), coordinates.index(row)), grayscale(elevation))
 # im.save('elevation_large.png')
 # print(im) ---- rendered image with black spots
-
